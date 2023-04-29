@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
-const Login = ({users, setSignIn, setLogIn}) => {
+const Login = ({users, setSignIn, setLogIn, setLogged}) => {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [exists, setExists] = useState(false)
+    const [submit, setSubmit] = useState(false)
 
     
     useEffect(() => {
-        if (exists){
+        if (exists && submit){
             setLogIn(false)
+            setLogged(true)
         }
-        else if (!exists && user){
-            alert('Usuario No Existente')
+        else if(!exists && submit){
+            alert('Datos Erroneos, Verificar Usuario y Contraseña o Cree un Usuario')
             setUser('')
             setPassword('')
         }
-    }, [exists]);
+    }, [exists, submit]);
 
     const onChange = (e) => {
-        if(e.target.name === 'user_input'){
+        if (e.target.name === 'user_input'){
             setUser(e.target.value)
         }
         else if (e.target.name === 'pass_input'){
@@ -33,44 +35,56 @@ const Login = ({users, setSignIn, setLogIn}) => {
                 setExists(true)
             }
         })
+
+        setSubmit(true)
     }
 
-    const onClick = () => {
-        setSignIn(true)
+    const onClick = (e) => {
+        if (e.target.name === 'create'){
+            setSignIn(true)
+        }
+        else if (e.target.name === 'cancel'){
+            setLogIn(false)
+        }
     }
     
     return (  
         <>
-        <div class='p-5 w-25'>
+        <div className='py-5' style={{"width" : "25rem"}}>
             <h1>Inicie Sesión</h1>
-            <div class='d-flex flex-column g-2'>
-            <div class="mb-3 ">
-                <label class="form-label">Username</label>
+            <div className='d-flex flex-column g-2'>
+            <div className="mb-3 ">
+                <label className="form-label">Nombre de Usuario</label>
                 <input 
                     type="text"     
-                    class="form-control"
+                    className="form-control"
                     name='user_input'
                     value={user}
                     onChange={onChange}
                 />
             </div>
-            <div class="mb-3 ">
-                <label class="form-label">Password</label>
+            <div className="mb-3 ">
+                <label className="form-label">Contraseña</label>
                 <input 
                     type="password" 
-                    class="form-control"
+                    className="form-control"
                     name='pass_input'
                     value={password}
                     onChange={onChange}
                 />
             </div>
-            <div class='d-flex flex-column g-2'>
-                <button class='btn btn-primary' onClick={onSubmit}>Inicie Sesión</button>
+            <div className='d-flex flex-column g-2'>
+                {password ? (
+                    <button className='btn btn-primary' onClick={onSubmit}>Inicie Sesión</button>
+                ):(
+                    <button className='btn btn-secondary'>Inicie Sesión</button>
+                )}
                 <br/>
-                <div class='d-flex align-items-baseline'>
+                <div className='d-flex align-items-baseline'>
                     <p> No tiene Usuario? </p>
-                    <button class='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' onClick={onClick}>Crear Usuario</button> 
+                    <button className='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' name='create' onClick={onClick}>Crear Usuario</button> 
                 </div>
+                <button className='btn text-start w-25 mx-0 p-0 text-primary' name='cancel' onClick={onClick}>Cancelar</button>
             </div>
             </div>
         </div>
