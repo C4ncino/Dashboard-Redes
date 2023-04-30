@@ -3,8 +3,9 @@ import axios from 'axios';
 import Login from './Login';
 import SignIn from './SignIn';
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/js/index.esm.js'
+import 'bootstrap/js/index.esm.js'
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
+import 'modern-normalize/modern-normalize.css'
 import Navbar from './Navbar';
 
 function App() {
