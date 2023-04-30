@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Login = ({users, setSignIn, setLogIn, setLogged}) => {
-
+const Login = ({users, setSignIn, setLogIn, setLogged, setUserMain}) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [exists, setExists] = useState(false)
@@ -12,6 +11,7 @@ const Login = ({users, setSignIn, setLogIn, setLogged}) => {
         if (exists && submit){
             setLogIn(false)
             setLogged(true)
+            setUserMain(user)
         }
         else if(!exists && submit){
             alert('Datos Erroneos, Verificar Usuario y Contraseña o Cree un Usuario')
@@ -74,13 +74,12 @@ const Login = ({users, setSignIn, setLogIn, setLogged}) => {
                 />
             </div>
             <div className='d-flex flex-column g-2'>
-                {password ? (
-                    <button className='btn btn-primary' onClick={onSubmit}>Inicie Sesión</button>
+                {user && password ? (
+                    <button className='btn btn-primary w-50 mx-auto' onClick={onSubmit}>Inicie Sesión</button>
                 ):(
-                    <button className='btn btn-secondary'>Inicie Sesión</button>
+                    <button className='btn btn-secondary w-50 mx-auto'>Inicie Sesión</button>
                 )}
-                <br/>
-                <div className='d-flex align-items-baseline'>
+                <div className='d-flex align-items-baseline mt-2'>
                     <p> No tiene Usuario? </p>
                     <button className='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' name='create' onClick={onClick}>Crear Usuario</button> 
                 </div>

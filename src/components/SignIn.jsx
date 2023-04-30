@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SignIn = ({users, setSignIn, setLogIn, url, setLogged}) => {
+const SignIn = ({users, setSignIn, setLogIn, url, setLogged, setUserMain}) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [passwordR, setPasswordR] = useState('');
@@ -24,6 +24,7 @@ const SignIn = ({users, setSignIn, setLogIn, url, setLogged}) => {
             setSignIn(false)
             setLogIn(false)
             setLogged(true)
+            setUserMain(user)
         }
     }, [exists, submit]);
 
@@ -101,13 +102,12 @@ const SignIn = ({users, setSignIn, setLogIn, url, setLogged}) => {
                 />
             </div>
             <div className='d-flex flex-column g-2'>
-                {passwordR ? (
-                    <button className='btn btn-primary' onClick={onSubmit}>Crear Usuario</button>
+                {user && password && passwordR ? (
+                    <button className='btn btn-primary w-50 mx-auto' onClick={onSubmit}>Crear Usuario</button>
                 ):(
-                    <button className='btn btn-secondary'>Crear Usuario</button>
+                    <button className='btn btn-secondary w-50 mx-auto'>Crear Usuario</button>
                 )}
-                <br/>
-                <div className='d-flex align-items-baseline'>
+                <div className='d-flex align-items-baseline mt-2'>
                     <p> Ya tiene Usuario? </p>
                     <button className='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' name='create' onClick={onClick}>Iniciar Sesion</button> 
                 </div>

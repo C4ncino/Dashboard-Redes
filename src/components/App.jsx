@@ -6,7 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/js/index.esm.js'
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import 'modern-normalize/modern-normalize.css'
+import '../styles/fonts.css'
+import '../styles/main.css'
 import Navbar from './Navbar';
+import Charts from './Charts/Charts';
 
 function App() {
   const urlUsuarios = 'https://api-sensores-redes.onrender.com/api/usuarios'
@@ -14,6 +17,7 @@ function App() {
   const [users, setUsers] = useState([{'username': 'hola', 'password' : 'hola'}, {'username': 'adios', 'password' : 'adios'}])
   const [logIn, setLogIn] = useState(false)
   const [signIn, setSignIn] = useState(false)
+  const [user, setUser] = useState('')
   const [logged, setLogged] = useState(false)
 
   useEffect(() => {
@@ -32,14 +36,15 @@ function App() {
         {logIn ? (
           <>
             {signIn ? (
-              <SignIn users={users} setSignIn={setSignIn} setLogIn={setLogIn} url={urlUsuarios} setLogged={setLogged}/>
+              <SignIn users={users} setSignIn={setSignIn} setLogIn={setLogIn} url={urlUsuarios} setLogged={setLogged} setUserMain={setUser}/>
               ) : (
-              <Login users={users} setSignIn={setSignIn} setLogIn={setLogIn} setLogged={setLogged}/>
+              <Login users={users} setSignIn={setSignIn} setLogIn={setLogIn} setLogged={setLogged} setUserMain={setUser}/>
             )}
           </>
         ) : (
           <>
-            <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn}/>
+            <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn} user={user} setUser={setUser}/>
+            <Charts/>
           </>
         )}
       </div>
