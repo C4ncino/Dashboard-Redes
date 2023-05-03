@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Login from './Login';
-import SignIn from './SignIn';
+import Login from './Navbar/Login';
+import SignIn from './Navbar/SignIn';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/js/index.esm.js'
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import 'modern-normalize/modern-normalize.css'
 import '../styles/fonts.css'
 import '../styles/main.css'
-import Navbar from './Navbar';
-import Charts from './Charts/Charts';
+import Navbar from './Navbar//Navbar';
+import Home from './Home/Home';
+import Live from './Live/Live';
+import Record from './Record/Record';
 
 function App() {
-  // const urlUsuarios = 'https://api-sensores-redes.onrender.com/api/usuarios'
-  const urlUsuarios = 'http://127.0.0.1:5000/api/usuarios'
+  const urlUsuarios = 'https://api-sensores-redes.onrender.com/api/usuarios'
+  // const urlUsuarios = 'http://127.0.0.1:5000/api/usuarios'
   const [users, setUsers] = useState([{ 'username': 'hola', 'password': 'hola' }, { 'username': 'adios', 'password': 'adios' }])
   const [logIn, setLogIn] = useState(false)
   const [signIn, setSignIn] = useState(false)
   const [user, setUser] = useState('')
   const [logged, setLogged] = useState(false)
+  const [page, setPage] = useState('home')
 
   useEffect(() => {
     console.log("Getting Data...")
@@ -29,7 +32,7 @@ function App() {
       console.log("Done")
     });
 
-  }, [urlUsuarios, logged]);
+  }, [logged]);
 
   return (
     <>
@@ -44,8 +47,24 @@ function App() {
           </>
         ) : (
           <>
-            <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn} user={user} setUser={setUser} />
-            <Charts />
+            <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn} user={user} setUser={setUser} setPage={setPage} />
+            {page === 'home' ? (
+              <Home />
+            ) : (
+              <>
+                {page === 'live' ? (
+                  <Live />
+                ) : (
+                  <>
+                    {page === 'record' ? (
+                      <Record />
+                    ) : (
+                      <Home />
+                    )}
+                  </>
+                )}
+              </>
+            )}
           </>
         )}
       </div>

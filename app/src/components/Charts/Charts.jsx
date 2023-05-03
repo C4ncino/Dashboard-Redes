@@ -7,8 +7,8 @@ const Charts = () => {
     return (
         <>
             <div className='d-flex flex-row flex-wrap g-4'>
-                {/* <RadialBar title={'[Inserte Un titulo]'} per={10} /> */}
-                <LineChart title={'[Inserte un titulo]'} width={500} height={300} />
+                {/* <RadialBar title='' value={100} suffix='cm' /> */}
+                <LineChart title='[Inserte un titulo]' width={500} height={300} xtitle='hola' />
             </div>
         </>
     );

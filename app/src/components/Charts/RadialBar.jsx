@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const RadialBar = ({ title, per }) => {
+const RadialBar = ({ title, value, height = 350, suffix = '' }) => {
 
   const config = {
-    series: [per],
+    series: [value],
 
     options: {
-      labels: [''],
+      labels: [title],
       chart: {
-        height: 350,
+        height: height,
+        width: height * 0.8,
         type: 'radialBar',
         fontFamily: 'Confortaa'
       },
@@ -17,8 +18,8 @@ const RadialBar = ({ title, per }) => {
         type: 'image',
         image: {
           src: ['/images/Degradado.png'],
-          width: 280,
-          height: 245
+          width: height * 0.83,
+          height: height * 0.72
         }
       },
       plotOptions: {
@@ -28,16 +29,16 @@ const RadialBar = ({ title, per }) => {
 
           dataLabels: {
             name: {
-              fontSize: '26px',
+              fontSize: '1.5em',
               color: undefined,
-              offsetY: 120
+              offsetY: height * 0.3
             },
             value: {
               offsetY: 0,
-              fontSize: '26px',
+              fontSize: '2em',
               color: undefined,
               formatter: function (val) {
-                return val + "cm";
+                return val + suffix;
               }
             }
           }
@@ -50,15 +51,13 @@ const RadialBar = ({ title, per }) => {
   };
 
   return (
-    <>
-      <ReactApexChart
-        options={config.options}
-        series={config.series}
-        type={config.options.chart.type}
-        height={config.options.chart.height}
-        width={config.options.chart.width}
-      />
-    </>
+    <ReactApexChart
+      options={config.options}
+      series={config.series}
+      type={config.options.chart.type}
+      height={config.options.chart.height}
+      width={config.options.chart.width}
+    />
   );
 }
 
