@@ -1,24 +1,24 @@
 import React from 'react';
 
-const Navbar = ({logged, setLogged, setLogIn, setSignIn, user, setUser}) => {
+const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser }) => {
 
     const onClick = (e) => {
-        if (e.target.name == 'logOut'){
+        if (e.target.name == 'logOut') {
             setUser('')
             setLogged(false)
         }
-        else if (e.target.name == 'logIn'){
+        else if (e.target.name == 'logIn') {
             setLogIn(true)
             setLogged(false)
         }
-        else if (e.target.name == 'signIn'){
+        else if (e.target.name == 'signIn') {
             setLogIn(true)
             setSignIn(true)
             setLogged(false)
         }
     }
 
-    return (  
+    return (
         <>
             <nav className="navbar navbar-expand-lg px-5 w-100">
                 <div className="container-fluid">
@@ -35,20 +35,20 @@ const Navbar = ({logged, setLogged, setLogIn, setSignIn, user, setUser}) => {
                                 <a className="nav-link fs-5" href="#">Historial</a>
                             </li>
                         </ul>
-                         
+
                         {logged ? (
-                            <div className='ps-3 ms-3 d-flex flex-row align-items-center' style={{'height' : '3rem'}}>    
+                            <div className='ps-3 ms-3 d-flex flex-row align-items-center' style={{ 'height': '3rem' }}>
                                 <p className='m-0 p-0'>Bienvenido, {user}</p>
                             </div>
                         ) : (
                             <></>
                         )}
-                        <div className='border-start border-2 ps-3 ms-3 d-flex flex-row align-items-center' style={{'height' : '3.5rem'}}>
+                        <div className='border-start border-2 ps-3 ms-3 d-flex flex-row align-items-center' style={{ 'height': '3.5rem' }}>
                             {logged ? (
                                 <>
                                     <button className="btn btn-outline-danger" name='logOut' onClick={onClick}>Cerrar Sesión</button>
                                 </>
-                            ):(
+                            ) : (
                                 <>
                                     <button className="btn btn-outline-primary me-3" name='logIn' onClick={onClick}>Inicia Sesión</button>
                                     <button className="btn btn-outline-primary ms-2" name='signIn' onClick={onClick}>Crear Cuenta</button>
@@ -57,9 +57,9 @@ const Navbar = ({logged, setLogged, setLogIn, setSignIn, user, setUser}) => {
                         </div>
                     </div>
                 </div>
-                </nav>
+            </nav>
         </>
     );
 }
- 
+
 export default Navbar;
