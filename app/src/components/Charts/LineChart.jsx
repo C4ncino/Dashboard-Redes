@@ -16,6 +16,7 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '' }) => {
             data: [10, 11, 12, 13, 15, 20, 21, 24, 6, 5, 3, 2, 7, 4, 7, 21, 27, 25]
         }
         ],
+
         options: {
             chart: {
                 height: height,
@@ -97,15 +98,13 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '' }) => {
 
 
     return (
-        <div id="chart">
-            <ReactApexChart
-                options={config.options}
-                series={config.series}
-                type={config.options.chart.type}
-                height={config.options.chart.height}
-                width={config.options.chart.width}
-            />
-        </div>
+        <ReactApexChart
+            options={config.options}
+            series={config.series}
+            type={config.options.chart.type}
+            height={config.options.chart.height}
+            width={config.options.chart.width}
+        />
     )
 
 }

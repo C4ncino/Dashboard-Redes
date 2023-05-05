@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './Navbar/Login';
 import SignIn from './Navbar/SignIn';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/js/index.esm.js'
-import 'bootstrap-icons/font/bootstrap-icons.min.css'
-import 'modern-normalize/modern-normalize.css'
-import '../styles/fonts.css'
-import '../styles/main.css'
 import Navbar from './Navbar//Navbar';
 import Home from './Home/Home';
 import Live from './Live/Live';
