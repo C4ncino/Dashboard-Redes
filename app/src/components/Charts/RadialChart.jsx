@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import RadialBar from './RadialBar';
 
-const RadialChart = ({ url }) => {
+const RadialChart = ({ url, reRender }) => {
     const [data, setData] = useState()
 
     useEffect(() => {
@@ -10,7 +10,7 @@ const RadialChart = ({ url }) => {
             setData(response.data)
         });
 
-    }, []);
+    }, [reRender]);
 
     return (
         <>
