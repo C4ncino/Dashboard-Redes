@@ -6,6 +6,7 @@ import Navbar from './Navbar//Navbar';
 import Home from './Home/Home';
 import Live from './Live/Live';
 import Record from './Record/Record';
+import Footer from './Footer/Footer';
 
 function App() {
   const urlUsuarios = 'https://api-sensores-redes.onrender.com/api/usuarios'
@@ -62,6 +63,7 @@ function App() {
           <>
             <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn} user={user} setUser={setUser} setPage={setPage} />
             {Pages(page)}
+            <Footer />
           </>
         )}
       </div>

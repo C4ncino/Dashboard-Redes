@@ -1,0 +1,34 @@
+{
+    "about": [
+        {
+            "name": "Carlos A. Cancino Escobar",
+            "carrer": "Ingeniería en Sistemas",
+            "semester": "Sexto Semestre",
+            "pp": "/images/about/pp.jpg"
+        },
+        {
+            "name": "Emilio Rivera Macías",
+            "carrer": "Ingeniería en Sistemas",
+            "semester": "Sexto Semestre",
+            "pp": "/images/about/pp.jpg"
+        },
+        {
+            "name": "Juan Pablo Gómez Haro",
+            "carrer": "Ingeniería en Sistemas",
+            "semester": "Sexto Semestre",
+            "pp": "/images/about/pp.jpg"
+        },
+        {
+            "name": "Markus Garrido Minutti",
+            "carrer": "Ingeniería Mecatrónica",
+            "semester": "Décimo Semestre",
+            "pp": "/images/about/pp.jpg"
+        },
+        {
+            "name": "Luiz Zermeño Escobedo",
+            "carrer": "Ingeniería Mecatrónica",
+            "semester": "Décimo Semestre",
+            "pp": "/images/about/pp.jpg"
+        }
+    ]
+}
