@@ -22,11 +22,30 @@ function App() {
 
     axios.get(urlUsuarios).then((response) => {
       setUsers(response.data)
-      console.log(response.data)
       console.log("Done")
     });
 
+    setPage('home')
+
   }, [logged]);
+
+  function Pages(page) {
+    if (page === 'home') {
+      return (
+        <Home />
+      )
+    }
+    else if (page === 'live') {
+      return (
+        <Live />
+      )
+    }
+    else if (page === 'record') {
+      return (
+        <Record />
+      )
+    }
+  }
 
   return (
     <>
@@ -42,23 +61,7 @@ function App() {
         ) : (
           <>
             <Navbar logged={logged} setLogged={setLogged} setLogIn={setLogIn} setSignIn={setSignIn} user={user} setUser={setUser} setPage={setPage} />
-            {page === 'home' ? (
-              <Home />
-            ) : (
-              <>
-                {page === 'live' ? (
-                  <Live />
-                ) : (
-                  <>
-                    {page === 'record' ? (
-                      <Record />
-                    ) : (
-                      <Home />
-                    )}
-                  </>
-                )}
-              </>
-            )}
+            {Pages(page)}
           </>
         )}
       </div>

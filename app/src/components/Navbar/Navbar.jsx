@@ -26,20 +26,32 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
             setPage('home')
         }
         else if (e.target.name === 'live') {
-            setPage('live')
+            if (logged == false) {
+                alert('Necesita Iniciar Sesión')
+            }
+            else {
+                setPage('live')
+            }
         }
         else if (e.target.name === 'record') {
-            setPage('record')
+            if (logged == false) {
+                return (
+                    alert('Necesita Iniciar Sesión')
+                )
+            }
+            else {
+                setPage('record')
+            }
         }
     }
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg px-5 w-100">
+            <nav className="navbar navbar-expand-lg w-100">
                 <div className="container-fluid">
-                    <button className="navbar-brand m-2 fs-3 fw-bold border-0" name='home' onClick={onClick}>Dashboard</button>
-                    <button className="navbar-toggler mx-2 fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                        <i className='bi bi-list fs-2 p-0 m-0'></i>
+                    <button className="navbar-brand m-2 fs-3 fw-bold border-0 bg-transparent" name='home' onClick={onClick}>Dashboard</button>
+                    <button className="navbar-toggler mx-2 p-2 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <i className='bi bi-list fs-1 p-0 m-0'></i>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarScroll">
                         <ul className="navbar-nav mt-2 my-lg-0 navbar-nav-scroll me-auto">
