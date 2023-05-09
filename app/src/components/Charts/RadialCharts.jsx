@@ -16,24 +16,24 @@ const RadialCharts = () => {
             setDate(response.data)
         });
 
-        // const interval = setInterval(() => {
-        //     setReRender(!reRender)
-        // }, 10000)
+        const interval = setInterval(() => {
+            setReRender(!reRender)
+        }, 5000)
 
-        // return () => clearInterval(interval)
+        return () => clearInterval(interval)
 
     }, [reRender])
 
     useEffect(() => {
     }, [date])
 
-    // if (date) {
-    //     const dateStr = date.date + ' ' + date.time
-    //     const d = new Date(dateStr)
+    if (date) {
+        const dateStr = date.date + ' ' + date.time
+        const d = new Date(dateStr)
 
-    //     date.date = d.getUTCDate() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCFullYear()
-    //     date.time = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCSeconds()
-    // }
+        date.date = d.getUTCDate() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCFullYear()
+        date.time = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCSeconds()
+    }
 
     return (
         <div>

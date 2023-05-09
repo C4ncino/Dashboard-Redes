@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const RadialBar = ({ title = '', value, height = 350, suffix = -1 }) => {
-    const suffixes = [' °C', ' %', ' %', ' %', ' %', ' %']
+    const suffixes = [' °C', ' %', '', ' lm', ' ppm', ' ppb']
 
     const config = {
         series: [value],

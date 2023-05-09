@@ -10,25 +10,25 @@
             "name": "Emilio Rivera Macías",
             "carrer": "Ingeniería en Sistemas",
             "semester": "Sexto Semestre",
-            "pp": "/images/about/pp.jpg"
+            "pp": "/images/about/pp_Emilio.jpg"
         },
         {
             "name": "Juan Pablo Gómez Haro",
             "carrer": "Ingeniería en Sistemas",
             "semester": "Sexto Semestre",
-            "pp": "/images/about/pp.jpg"
+            "pp": "/images/about/pp_JP.jpg"
         },
         {
             "name": "Markus Garrido Minutti",
             "carrer": "Ingeniería Mecatrónica",
             "semester": "Décimo Semestre",
-            "pp": "/images/about/pp.jpg"
+            "pp": "/images/about/pp_Markus.jpg"
         },
         {
             "name": "Luiz Zermeño Escobedo",
             "carrer": "Ingeniería Mecatrónica",
             "semester": "Décimo Semestre",
-            "pp": "/images/about/pp.jpg"
+            "pp": "/images/about/pp_Luis.jpg"
         }
     ]
 }
