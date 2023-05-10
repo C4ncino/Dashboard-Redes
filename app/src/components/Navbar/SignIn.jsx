@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SignIn = ({users, setSignIn, setLogIn, url, setLogged, setUserMain}) => {
+const SignIn = ({ users, setSignIn, setLogIn, url, setLogged, setUserMain }) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [passwordR, setPasswordR] = useState('');
@@ -9,17 +9,17 @@ const SignIn = ({users, setSignIn, setLogIn, url, setLogged, setUserMain}) => {
     const [submit, setSubmit] = useState(false)
 
     useEffect(() => {
-        if (exists && submit){
+        if (exists && submit) {
             alert('Usuario Existente')
         }
-        else if (!exists && submit){
+        else if (!exists && submit) {
             axios.post(url, {
-                username : user,
-                password : password
+                username: user,
+                password: password
             })
-            .then((response) => {
-                console.log(response)
-            });
+                .then((response) => {
+                    console.log(response)
+                });
 
             setSignIn(false)
             setLogIn(false)
@@ -29,94 +29,94 @@ const SignIn = ({users, setSignIn, setLogIn, url, setLogged, setUserMain}) => {
     }, [exists, submit]);
 
     const onChange = (e) => {
-        if(e.target.name === 'user_input'){
+        if (e.target.name === 'user_input') {
             setUser(e.target.value)
         }
-        else if (e.target.name === 'pass_input'){
+        else if (e.target.name === 'pass_input') {
             setPassword(e.target.value)
         }
-        else if (e.target.name === 'passR_input'){
+        else if (e.target.name === 'passR_input') {
             setPasswordR(e.target.value)
         }
     }
 
     const onSubmit = () => {
-        if (password === passwordR){
+        if (password === passwordR) {
             users.map((u) => {
-                if (user === u.username && password === u.password){
+                if (user === u.username && password === u.password) {
                     setExists(true)
                 }
             })
-            
+
             setSubmit(true)
         }
-        else{
+        else {
             alert('Las contraseñas deben coincidir')
             setPasswordR('')
         }
     }
 
     const onClick = (e) => {
-        if (e.target.name === 'create'){
+        if (e.target.name === 'create') {
             setSignIn(false)
         }
-        else if (e.target.name === 'cancel'){
+        else if (e.target.name === 'cancel') {
             setSignIn(false)
             setLogIn(false)
         }
     }
 
-    return (  
+    return (
         <>
-        <div className='py-5' style={{"width" : "25rem"}}>
-            <h1>Crear Usuario</h1>
-            <div className='d-flex flex-column g-2'>
-            <div className="mb-3">
-                <label className="form-label">Nombre de Usuario</label>
-                <input 
-                    type="text"     
-                    className="form-control"
-                    name='user_input'
-                    value={user}
-                    onChange={onChange}
-                />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Contraseña</label>
-                <input 
-                    type="password" 
-                    className="form-control"
-                    name='pass_input'
-                    value={password}
-                    onChange={onChange}
-                />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Repita la Contraseña</label>
-                <input 
-                    type="password" 
-                    className="form-control"
-                    name='passR_input'
-                    value={passwordR}
-                    onChange={onChange}
-                />
-            </div>
-            <div className='d-flex flex-column g-2'>
-                {user && password && passwordR ? (
-                    <button className='btn btn-primary w-50 mx-auto' onClick={onSubmit}>Crear Usuario</button>
-                ):(
-                    <button className='btn btn-secondary w-50 mx-auto'>Crear Usuario</button>
-                )}
-                <div className='d-flex align-items-baseline mt-2'>
-                    <p> Ya tiene Usuario? </p>
-                    <button className='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' name='create' onClick={onClick}>Iniciar Sesion</button> 
+            <div className='py-5' style={{ "width": "20rem" }}>
+                <h1>Crear Usuario</h1>
+                <div className='d-flex flex-column g-2'>
+                    <div className="mb-3">
+                        <label className="form-label">Nombre de Usuario</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name='user_input'
+                            value={user}
+                            onChange={onChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name='pass_input'
+                            value={password}
+                            onChange={onChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Repita la Contraseña</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name='passR_input'
+                            value={passwordR}
+                            onChange={onChange}
+                        />
+                    </div>
+                    <div className='d-flex flex-column g-2'>
+                        {user && password && passwordR ? (
+                            <button className='btn btn-primary w-50 mx-auto' onClick={onSubmit}>Crear Usuario</button>
+                        ) : (
+                            <button className='btn btn-secondary w-50 mx-auto'>Crear Usuario</button>
+                        )}
+                        <div className='d-flex align-items-baseline mt-2'>
+                            <p> Ya tiene Usuario? </p>
+                            <button className='btn border border-0 border-bottom border-2 border-primary-subtle rounded-0 mx-1' name='create' onClick={onClick}>Iniciar Sesion</button>
+                        </div>
+                        <button className='btn text-start w-25 mx-0 p-0 text-primary' name='cancel' onClick={onClick}>Cancelar</button>
+                    </div>
                 </div>
-                <button className='btn text-start w-25 mx-0 p-0 text-primary' name='cancel' onClick={onClick}>Cancelar</button>
             </div>
-            </div>
-        </div>
         </>
     );
 }
- 
+
 export default SignIn;
