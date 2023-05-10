@@ -73,12 +73,12 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
                         <div className='border-start border-2 ps-3 ms-3 d-flex flex-row align-items-center' style={{ 'height': '3.5rem' }}>
                             {logged ? (
                                 <>
-                                    <button className="btn btn-outline-danger border border-3 border-danger fs-6 fw-bold text-light" name='logOut' onClick={onClick}>Cerrar Sesión</button>
+                                    <button className="btn btn-outline-danger border border-3 border-danger fs-6 fw-bold text-light" style={{ maxHeight: "2.5rem" }} name='logOut' onClick={onClick}>Cerrar Sesión</button>
                                 </>
                             ) : (
                                 <>
-                                    <button className="btn border border-3 border-light btn-outline-primary me-3 fw-bold fs-6 text-light" name='logIn' onClick={onClick}>Inicia Sesión</button>
-                                    <button className="btn border border-3 border-light btn-outline-primary ms-2 fw-bold fs-6 text-light" name='signIn' onClick={onClick}>Crear Cuenta</button>
+                                    <button className="btn border border-3 border-light btn-outline-primary me-3 fw-bold fs-6 text-light" style={{ maxHeight: "2.5rem" }} name='logIn' onClick={onClick}>Inicia Sesión</button>
+                                    <button className="btn border border-3 border-light btn-outline-primary ms-2 fw-bold fs-6 text-light" style={{ maxHeight: "2.5rem" }} name='signIn' onClick={onClick}>Crear Cuenta</button>
                                 </>
                             )}
                         </div>
@@ -87,8 +87,8 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
             </nav>
 
 
-            <div className='header m-4 mb-0 pb-5 d-flex flex-column align-items-center justify-content-end'>
-                <h1 className='text-center w-75 mx-auto text-light fw-bold'>{data.title}</h1>
+            <div className='header m-4 mb-0 pb-5 pt-5 d-flex flex-column align-items-center justify-content-end'>
+                <h1 className='text-center mx-auto text-light fw-bold'>{data.title}</h1>
             </div>
 
             <img className='banner' src="/images/banner.jpg" alt="nada" />

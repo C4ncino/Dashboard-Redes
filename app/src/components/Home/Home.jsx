@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <div className='d-flex flex-column align-items-center'>
                 {/* Introducction */}
-                <div className='bg-dark-subtle bg-opacity-10 d-flex justify-content-center py-4'>
+                <div className='bg-dark-subtle bg-opacity-10 d-flex justify-content-center py-4 px-1'>
                     <div className='w-75'>
                         <h2 className='text-center'> {data.introduction.title} </h2>
                         <div className='row'>
@@ -57,12 +57,14 @@ const Home = () => {
                 </div>
 
                 {/* Repositorios */}
-                <div className='d-flex flex-column align-items-center w-100 mt-3 py-4 bg-primary-subtle bg-opacity-25'>
+                <div className='d-flex flex-column align-items-center w-100 mt-3 py-4 bg-primary-subtle bg-opacity-25 mx-2'>
                     <h2 className='text-center'>Repositorios</h2>
-                    <div className='d-flex felx-row justify-content-center' style={{ gap: "12rem" }}>
+                    <div className='d-flex flex-row' >
                         {data.repositorios.map((repo, i) =>
-                            <div key={i} className='d-flex flex-column align-items-center'>
-                                <h4 className='text-center mb-1 fw-bold'>{repo.title}</h4>
+                            <div key={i} className='d-flex flex-column align-items-center px-3 mx-3'>
+
+                                <h4>{repo.title}</h4>
+
                                 <a className='btn btn-outline-dark border-0 mt-2 p-3 rounded-circle d-flex align-items-center justify-content-center' style={{ height: "4rem", width: "4rem" }} href={repo.url} target='_blank'>
                                     < i className='bi bi-github fs-1' />
                                 </a>
@@ -70,7 +72,6 @@ const Home = () => {
                         )}
                     </div>
 
-                    {/* API */}
                     <div className='d-flex flex-column align-items-center my-3 pt-3 w-75'>
                         <h4 className='text-center w-75'>{data.api.info}</h4>
                         <a className='btn btn-outline-primary mt-2' href={data.api.url} target='_blank'>Haz Click Aquí</a>
