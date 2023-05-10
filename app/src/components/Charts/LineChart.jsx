@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recentData, lastData, xData, today, yesterday }) => {
+const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recentData, lastData, xData, today, yesterday, min, max }) => {
 
     const config = {
 
@@ -34,7 +34,7 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recent
                         fontFamily: 'Confortaa',
                     },
                     formatter: function (value, timestamp, opts) {
-                        return opts.dateFormatter(new Date(timestamp), 'hh:mm')
+                        return opts.dateFormatter(new Date(timestamp), 'mm:ss')
                     }
                 },
                 title: {
@@ -45,8 +45,8 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recent
                 },
             },
             yaxis: {
-                min: -1,
-                max: 35,
+                min: 10,
+                max: 100,
                 labels: {
                     style: {
                         fontFamily: 'Confortaa',

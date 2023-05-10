@@ -27,20 +27,30 @@ const RadialCharts = () => {
     useEffect(() => {
     }, [date])
 
-    if (date) {
-        const dateStr = date.date + ' ' + date.time
+
+    const formatDate = () => {
+        const dateStr = date.date
         const d = new Date(dateStr)
 
-        date.date = d.getUTCDate() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCFullYear()
-        date.time = d.getUTCHours() + ':' + d.getUTCMinutes() + ':' + d.getUTCSeconds()
+        const formatedDate = (d.getDate() + 1) + '-' + (d.getMonth() + 1) + '-' + d.getFullYear()
+
+        return formatedDate
+    }
+    const formatTime = () => {
+        const dateStr = date.time
+        const d = new Date(dateStr)
+
+        const formatedTime = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+
+        return formatedTime
     }
 
     return (
         <div>
             {date ? (
                 <h3 className='text-center py-3 m-0'>
-                    Fecha Actual: <b className='text-primary'>{date.date + ' '}</b>
-                    Horario Actual: <b className='text-primary'>{date.time}</b>
+                    Fecha Actual: <b className='text-primary'>{formatDate() + ' '}</b>
+                    Horario Actual: <b className='text-primary'>{formatTime()}</b>
                 </h3>
             ) : (
                 <h3 className='text-center py-3 m-0'>
