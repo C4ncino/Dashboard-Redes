@@ -4,7 +4,7 @@ Dashboard que funciona como Front End para la API https://github.com/JuanPabloGH
 
 # Dashboard desplegado
 
-- https://task-management-api-0ds8.onrender.com/api/tasks
+- https://rancho-el-moralito.vercel.app/
 
 ## Tech Stack
 
