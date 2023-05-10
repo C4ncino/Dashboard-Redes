@@ -58,14 +58,14 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
                         <ul className="navbar-nav mt-2 my-lg-0 navbar-nav-scroll me-auto">
                             {pages.map((page, i) =>
                                 <li className="nav-item border-start border-3 ps-3 py-1 ms-3" key={i}>
-                                    <button className="nav-link active fs-5 text-light" onClick={onClick} name={page.name}> {page.title} </button>
+                                    <button className="nav-link active text-light" onClick={onClick} name={page.name}> {page.title} </button>
                                 </li>
                             )}
                         </ul>
 
                         {logged ? (
                             <div className='ps-2 ms-2 d-flex flex-row align-items-center' style={{ 'height': '3rem' }}>
-                                <p className='m-0 p-0 fs-6'>Bienvenido, {user}</p>
+                                <p className='m-0 p-0'>Bienvenido, {user}</p>
                             </div>
                         ) : (
                             <></>
@@ -87,7 +87,7 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
             </nav>
 
 
-            <div className='header m-4'>
+            <div className='header m-4 mb-0'>
                 <h1 className='text-center w-75 mx-auto text-light fw-bold'>{data.title}</h1>
             </div>
 

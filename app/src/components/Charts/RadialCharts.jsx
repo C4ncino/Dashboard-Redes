@@ -46,7 +46,7 @@ const RadialCharts = () => {
     }
 
     return (
-        <div>
+        <div className=''>
             {date ? (
                 <h3 className='text-center py-3 m-0'>
                     Fecha Actual: <b className='text-primary'>{formatDate() + ' '}</b>

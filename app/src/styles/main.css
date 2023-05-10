@@ -13,7 +13,7 @@
     height: 400px;
     z-index: -1;
     object-fit: cover;
-    -webkit-filter: blur(3px);
+    filter: blur(3px);
 }
 
 .header{

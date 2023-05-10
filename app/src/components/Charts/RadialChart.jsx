@@ -8,6 +8,7 @@ const RadialChart = ({ url, reRender }) => {
     useEffect(() => {
         axios.get(url).then((response) => {
             setData(response.data)
+            console.log(response.data)
         });
 
     }, [reRender]);
@@ -18,7 +19,7 @@ const RadialChart = ({ url, reRender }) => {
                 <>
                     <h4 className='position-relative' style={{ top: "25px" }}>{data.name}</h4>
                     <div className='m-0'>
-                        <RadialBar title='' value={data.value} suffix={data.id - 1} />
+                        <RadialBar title={data.value} value={(100 / (data.max - data.min)) * data.value - (data.min * 100 / (data.max - data.min))} suffix={data.id - 1} />
                     </div>
                     <div className='position-relative w-100 text-center' style={{ bottom: "20px" }}>
                         <div className='w-50 border-top border-2 p-2 mx-auto' ></div>

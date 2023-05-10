@@ -27,14 +27,16 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recent
                 // colors: ['#ff0', '#00F', '#0F0']
             },
             xaxis: {
+                tickPlacement: 'on',
                 type: 'datetime',
                 categories: xData,
+                // range: 1,
                 labels: {
                     style: {
                         fontFamily: 'Confortaa',
                     },
                     formatter: function (value, timestamp, opts) {
-                        return opts.dateFormatter(new Date(timestamp), 'mm:ss')
+                        return opts.dateFormatter(new Date(timestamp), 'HH:MM')
                     }
                 },
                 title: {
@@ -45,8 +47,8 @@ const LineChart = ({ title = '', height, width, xtitle = '', ytitle = '', recent
                 },
             },
             yaxis: {
-                min: 10,
-                max: 100,
+                min: min,
+                max: max,
                 labels: {
                     style: {
                         fontFamily: 'Confortaa',

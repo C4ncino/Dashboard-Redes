@@ -40,7 +40,7 @@ const RadialBar = ({ title = '', value, height = 350, suffix = -1 }) => {
                             fontSize: '2em',
                             color: undefined,
                             formatter: function (val) {
-                                return val + suffixes[suffix];
+                                return suffixes[suffix];
                             }
                         }
                     }

@@ -1,43 +1,48 @@
 {
     "title": "Plantación forestal con cedro en Rancho El Moral, Españita, Tlaxcala ",
     "introduction": {
-        "title": "Introducción",
-        "paragraph 1": "El rancho El Moral se ubica al suroeste de Españita, Tlaxcala; tiene una extensión aproximada de 100 hectáreas. Desde hace más de 57 años se llevan a cabo actividades agropecuarias, tales como el cultivo de cereales (avena, maíz y triticale) y la producción de ovinos, bovinos y porcinos.",
-        "paragraph 2": "Recientemente, se han implementado estrategias para la agricultura de conservación, además, en 2016 se llevó a cabo una plantación forestal orientada por la Comisión Nacional Forestal (CONAFOR), con más de 130,000 árboles de especie Cupressus lindleyi. Se logró un éxito del 95% del total de árboles sembrados, sin embargo, recientemente se ha presentado la problemática de plagas de insectos descortezadores.",
-        "paragraph 3": "Para contrarrestar la plaga de insectos descortezadores, se implementará un sistema de sensores que permitirá monitorear los efectos sobre el ambiente y las actividades agropecuarias en el rancho El Moral. El monitoreo de los parámetros del ecosistema no solo ayudará a combatir las plagas, sino que también permitirá conocer los beneficios del proyecto forestal que se está llevando a cabo."
+        "title": "Probemática",
+        "paragraphs": [
+            "El rancho El Moral se ubica al suroeste de Españita, Tlaxcala; tiene una extensión aproximada de 100 hectáreas. Desde hace más de 57 años se llevan a cabo actividades agropecuarias, tales como el cultivo de cereales (avena, maíz y triticale) y la producción de ovinos, bovinos y porcinos.",
+            "Recientemente, se han implementado estrategias para la agricultura de conservación, además, en 2016 se llevó a cabo una plantación forestal orientada por la Comisión Nacional Forestal (CONAFOR), con más de 130,000 árboles de especie Cupressus lindleyi. Se logró un éxito del 95% del total de árboles sembrados, sin embargo, recientemente se ha presentado la problemática de plagas de insectos descortezadores.",
+            "Para contrarrestar la plaga de insectos descortezadores, se implementará un sistema de sensores que permitirá monitorear los efectos sobre el ambiente y las actividades agropecuarias en el rancho El Moral. El monitoreo de los parámetros del ecosistema no solo ayudará a combatir las plagas, sino que también permitirá conocer los beneficios del proyecto forestal que se está llevando a cabo."
+        ]
     },
     "development": {
-        "title": "DESARROLLO",
+        "title": "Desarrollo",
         "paragraphs": [
-            "Para monitorear el ecosistema del rancho El Moral, se han seleccionado los siguientes parámetros: temperatura, humedad, compuestos orgánicos volátiles, concentración de CO2, intensidad de luz y sonido. A continuación, se presenta la tabla de sensores que se implementarán.",
+            "Para monitorear el ecosistema del rancho El Moral, se han seleccionado los siguientes parámetros: temperatura, humedad, compuestos orgánicos volátiles, concentración de CO2, intensidad de luz y sonido. Al Final, se presenta la tabla de sensores que se implementarán.",
             "Para realizar la lectura de los sensores y el envío de datos, se utilizaron placas ESP32. Este dispositivo es un microcontrolador que combina tecnologías WiFi y Bluetooth para ofrecer conectividad con otros dispositivos e Internet. La placa cuenta con un procesador de doble núcleo de 32 bits que funciona a una velocidad de hasta 240 MHz. Además, es compatible con una gran variedad de lenguajes de programación. Para este proyecto, se optó por utilizar la IDE de Arduino.",
             "El primer paso que se realizó fue conectar los sensores a las tres placas ESP32. Para ello, se utilizaron los puertos de entrada y salida disponibles en la placa. Una vez conectados los sensores, se programó la lectura de estos en la IDE de Arduino y se realizó el envío de los datos a través de Wifi al servidor.",
             "El sensor SGP30, que mide la calidad del aire, fue posible programarlo y realizar la lectura de sus datos utilizando la librería de Adafruit Industries diseñada para este propósito. Este sensor mide la concentración de CO2 y compuestos orgánicos en el aire de forma precisa, midiendo también la concentración de H2 y etanol. Para la lectura de temperatura y humedad.",
             "Para medir la intensidad de la luz con una fotorresistencia utilizando una ESP32, fue necesario conectar la fotorresistencia a una entrada analógica de la ESP32 y leer el voltaje en la entrada analógica utilizando una función en el código de programación de la ESP32. El valor obtenido se utilizó para calcular la resistencia de la fotorresistencia y a partir de allí, la intensidad de la luz. Para la medición del sonido con el sensor KY-038 el proceso fue parecido ya que este tiene una salida analógica que también fue medida y procesada con la placa ESP32.",
-            "Una vez medido los parámetros de cada uno de los sensores se mandaron a través de una API utilizando Wifi. Los valores son entonces almacenados en un servidor de Render."
+            "Una vez medido los parámetros de cada uno de los sensores se mandaron a través de una API utilizando Wifi. Los valores son entonces almacenados en un servidor de Render. Para hacer el request del servidor se utilizó el método post desde los sensores. El dashboard se realizó en un framework de JavaScript en el cual se muestra la lectura de los sensores. "
         ],
-        "table": [
-            {
-                "name": "Sensores",
-                "description": "Descripcion"
-            },
-            {
-                "name": "DHT11",
-                "description": "El DHT11 es un sensor digital de temperatura y humedad relativa de bajo costo y fácil uso. Integra un sensor capacitivo de humedad y un termistor para medir el aire circundante, y muestra los datos mediante una señal digital en el pin de datos"
-            },
-            {
-                "name": "KY-038",
-                "description": "Sensor de micrófono que detecta el sonido en su entorno y lo convierte en señales eléctricas que pueden ser interpretadas."
-            },
-            {
-                "name": "Fotorresistencia",
-                "description": "Sensor que mide la cantidad de luz que llega a su superficie y varía su resistencia eléctrica en función de la cantidad de luz."
-            },
-            {
-                "name": "SGP30",
-                "description": "Sensor de calidad del aire que mide la concentración de dióxido de carbono (CO2) y compuestos orgánicos volátiles (TVOC) en el aire."
-            }
-        ]
+        "table": {
+            "headers": [
+                "#",
+                "Sensores",
+                "Descripcion"
+            ],
+            "info": [
+                {
+                    "name": "DHT11",
+                    "description": "Sensor digital de temperatura y humedad relativa de bajo costo y fácil uso. Integra un sensor capacitivo de humedad y un termistor para medir el aire circundante."
+                },
+                {
+                    "name": "KY-038",
+                    "description": "Sensor de micrófono que detecta el sonido en su entorno y lo convierte en señales eléctricas que pueden ser interpretadas."
+                },
+                {
+                    "name": "Foto - Resistencia",
+                    "description": "Sensor que mide la cantidad de luz que llega a su superficie y varía su resistencia eléctrica en función de la cantidad de luz."
+                },
+                {
+                    "name": "SGP30",
+                    "description": "Sensor de calidad del aire que mide la concentración de dióxido de carbono (CO2) y compuestos orgánicos volátiles (TVOC) en el aire."
+                }
+            ]
+        }
     },
     "repositorios": [
         {
@@ -51,7 +56,7 @@
     ],
     "api": {
         "info": "Este Dashboard está hecho con ayuda de un api desarrollada por nosotros la cual puedes acceder por el siguiente enlace",
-        "url": "https://api-sensores-redes.onrender.com/api/sensores"
+        "url": "https://api-sensores-redes.onrender.com"
     },
     "about": [
         {

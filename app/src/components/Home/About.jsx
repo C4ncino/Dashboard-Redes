@@ -3,7 +3,7 @@ import React from 'react';
 const About = ({ data }) => {
     return (
         <>
-            <div className='d-flex flex-column align-items-center p-4' id='about'>
+            <div className='d-flex flex-column align-items-center bg-secondary-subtle w-100 pt-4' id='about'>
                 <h2>Conócenos</h2>
 
                 <div className="d-flex flex-row p-3 m-0 flex-wrap justify-content-center" style={{ gap: '1rem' }}>
