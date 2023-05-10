@@ -4,8 +4,11 @@ import LineCharts from '../Charts/LineCharts';
 const Record = () => {
     return (
         <>
-            <h1 className='m-3'> Historial </h1>
-            <LineCharts />
+
+            <div className='bg-light-subtle bg-opacity-10'>
+                <h1 className='m-3 text-center'> Historial </h1>
+                <LineCharts />
+            </div>
         </>
     );
 }
