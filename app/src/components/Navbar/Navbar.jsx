@@ -87,7 +87,7 @@ const Navbar = ({ logged, setLogged, setLogIn, setSignIn, user, setUser, setPage
             </nav>
 
 
-            <div className='header m-4 mb-0'>
+            <div className='header m-4 mb-0 pb-5 d-flex flex-column align-items-center justify-content-end'>
                 <h1 className='text-center w-75 mx-auto text-light fw-bold'>{data.title}</h1>
             </div>
 
