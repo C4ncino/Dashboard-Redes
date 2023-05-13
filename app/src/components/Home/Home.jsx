@@ -36,7 +36,7 @@ const Home = () => {
                     {data.development.paragraphs.map((p, i) =>
                         <p key={i} style={{ textAlign: "justify" }}>{p}</p>
                     )}
-                    <table className='table w-75'>
+                    <table className='table'>
                         <thead>
                             <tr>
                                 {data.development.table.headers.map((value, i) =>
@@ -54,6 +54,8 @@ const Home = () => {
                             )}
                         </tbody>
                     </table>
+                    <h3 className='mt-3'>Diagrama de Arquitectura</h3>
+                    <img src="/images/Diagrama.jpg" alt="" className='w-75' />
                 </div>
 
                 {/* Repositorios */}
@@ -77,10 +79,9 @@ const Home = () => {
                         <a className='btn btn-outline-primary mt-2' href={data.api.url} target='_blank'>Haz Click Aquí</a>
                     </div>
                 </div >
-
+                <About data={data.about} />
             </div >
 
-            <About data={data.about} />
         </>
     );
 }
