@@ -18,7 +18,7 @@ const RadialCharts = () => {
 
         const interval = setInterval(() => {
             setReRender(!reRender)
-        }, 15000)
+        }, 5000)
 
         return () => clearInterval(interval)
 
