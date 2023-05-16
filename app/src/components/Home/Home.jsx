@@ -56,6 +56,17 @@ const Home = () => {
                     </table>
                     <h3 className='mt-3'>Diagrama de Arquitectura</h3>
                     <img src="/images/Diagrama.jpg" alt="" className='w-75' />
+                    <h3 className='mt-3'>Video</h3>
+                    <div className='w-50' style={{ height: '18rem' }}>
+                        <iframe
+                            className='w-100 h-100'
+                            src="https://www.youtube.com/embed/1A2YqbMQWdY"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                        />
+                    </div>
                 </div>
 
                 {/* Repositorios */}
