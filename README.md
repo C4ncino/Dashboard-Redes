@@ -13,10 +13,3 @@ Dashboard que funciona como Front End para la API https://github.com/JuanPabloGH
 ## Autores
 
 - [@C4ncino](https://github.com/C4ncino)
-
-
-``` json
-{
-  "nada": "hola"
-}
-```
